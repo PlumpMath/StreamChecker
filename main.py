@@ -1,6 +1,7 @@
 import json
 from urllib.request import urlopen
 import string
+import os, time
 
 twitchBase = "https://api.twitch.tv/kraken/streams/"
 
@@ -19,6 +20,7 @@ for x in range(0, len(json_data["streams"])):
     response = get_jsonparsed_data(urlToCheck)
     if(response["stream"] != None):
         print((json_data["streams"][x]["streamURL"]) + " is active")
+        os.system('livestreamer twitch.tv/%s best' %(json_data["streams"][x]["streamURL"]))
     else:
         print((json_data["streams"][x]["streamURL"]) + " is not active")
     
