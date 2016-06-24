@@ -1,0 +1,16 @@
+{
+  "streams":
+  [
+    {"streamURL":"nl_kripp"},
+    {"streamURL":"esl_csgo"},
+    {"streamURL":"esl_hearthstone"},
+    {"streamURL":"eulcs1"},
+    {"streamURL":"eulcs2"},
+    {"streamURL":"nalcs1"},
+    {"streamURL":"nalcs2"},
+    {"streamURL":"lpl1"},
+    {"streamURL":"lpl2"},
+    {"streamURL":"lck1"},
+    {"streamURL":"lck2"}
+  ]
+}
