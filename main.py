@@ -26,15 +26,15 @@ def printStreams(i, streams):
         response = get_jsonparsed_data(urlToCheck)
         if i == 1:
             if(response["stream"] != None):
-                print((streams[x]) + " is active")
+                print("[%d] " %(x+1) + (streams[x]) + " is active")
             else:
-                print((streams[x]) + " is not active")
+                print("[%d] " %(x+1) + (streams[x]) + " is not active")
         if i == 2:
             if(response["stream"] != None):
-                print((streams[x]) + " is active")
+                print("[%d] " %(x+1) + (streams[x]) + " is active")
         if i == 3:
             if(response["stream"] == None):
-                print((streams[x]) + " is not active")
+                print("[%d] " %(x+1) + (streams[x]) + " is not active")
             
             
     
@@ -43,13 +43,20 @@ def printStreams(i, streams):
 def mainLoop(streams):
     print("[1] See all streams\n[2] See active streams\n[3] See offline streams")
     userChoice = 0
+    secondChoice = 0
     while userChoice != '1' and userChoice != '2' and userChoice != '3':
         userChoice = input("Please select an option: ")
 
     if userChoice == '1':
         printStreams(1, streams)
+        print("Select a stream to play: ")
+        secondChoice = input()
+        os.system('livestreamer twitch.tv/%s best' %(streams[int(secondChoice)]))
     elif userChoice == '2':
         printStreams(2, streams)
+        print("Select a stream to play: ")
+        secondChoice = input()
+        os.system('livestreamer twitch.tv/%s best' %(streams[int(secondChoice)]))
     elif userChoice == '3':
         printStreams(3, streams)
         
