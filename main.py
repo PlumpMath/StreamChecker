@@ -14,11 +14,7 @@ def getStreams():
     return streamList
 
 def get_jsonparsed_data(url):
-    response = urlopen(url)
-    data = str(response.read())
-    data = data.encode('ascii','ignore').decode('unicode_escape')
-    data = data[2:-1]
-    return json.loads(data)
+    return json.loads(str((urlopen(url)).read()).encode('ascii','ignore').decode('unicode_escape')[2:-1])
 
 def printStreams(i, streams):
     for x in range(0, len(streams)):
