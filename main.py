@@ -32,7 +32,12 @@ def printStreams(i, streams):
             if(response["stream"] == None):
                 print("[%d] " %(x+1) + (streams[x]) + " is not active")
             
-            
+def autoLoop(streams):
+    for x in range(0, len(streams)):
+        urlToCheck = twitchBase + streams[x]
+        response = get_jsonparsed_data(urlToCheck)
+        if(response["stream"] != None):
+            os.system('livestreamer twitch.tv/%s best' %(streams[x]))
     
 
 
@@ -58,7 +63,7 @@ def mainLoop(streams):
         
 
 while True:
-    mainLoop(getStreams())
+    autoLoop(getStreams())
 
 ##for x in range(0, len(json_data["streams"])):
 ##    urlToCheck = twitchBase + json_data["streams"][x]["streamURL"]
